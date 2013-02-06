@@ -1,4 +1,7 @@
 Bukkit::Application.routes.draw do
+  resources :accounts do
+    resource :activations
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

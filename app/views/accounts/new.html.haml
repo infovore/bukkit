@@ -1,0 +1,9 @@
+%h1 Sign up for Bukkit
+
+= form_tag(accounts_path, :method => :post, :class => "horizontal-form") do |f|
+  .control-group
+    %label.control-label Phone number
+    .controls
+      = text_field_tag :phone_number
+  .control-group
+    = submit_tag "Sign up"

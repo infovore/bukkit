@@ -10,6 +10,8 @@ gem "twitter-bootstrap-rails"
 gem 'less-rails'
 gem 'bcrypt-ruby'
 
+gem 'haml'
+
 
 
 # Gems used only for assets and not required

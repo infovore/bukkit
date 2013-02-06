@@ -19,8 +19,5 @@ class PhoneNumber
       n
     end
 
-    def generate_access_code_for_number(number)
-      encrypted = Password.create(number.to_s + Time.now.to_s)
-    end
   end
 end

@@ -1,5 +1,8 @@
+require 'bcrypt'
+
 class PhoneNumber
   class << self
+    include BCrypt
     def from_raw_number(number)
       n = number.strip.gsub(" ", "")
 
@@ -14,6 +17,10 @@ class PhoneNumber
         n = n[1,n.length]
       end
       n
+    end
+
+    def generate_access_code_for_number(number)
+      encrypted = Password.create(number.to_s + Time.now.to_s)
     end
   end
 end

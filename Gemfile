@@ -8,6 +8,7 @@ gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem "twitter-bootstrap-rails"
 gem 'less-rails'
+gem 'bcrypt-ruby'
 
 
 

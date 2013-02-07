@@ -1,0 +1,12 @@
+%h1 Activate your account
+
+%p You should shortly receive a text message. When you do, enter that activation code here
+
+= form_tag(activations_path, :method => :post, :class => "horizontal-form") do |f|
+  .control-group
+    %label.control-label Authorization code
+    .controls
+      = hidden_field_tag :phone_number, @account.phone_number
+      = text_field_tag :activation_code
+  .control-group
+    = submit_tag "Activate"

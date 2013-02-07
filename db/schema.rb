@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206171141) do
+ActiveRecord::Schema.define(:version => 20130207155913) do
 
   create_table "accounts", :force => true do |t|
     t.string   "phone_number"
@@ -21,5 +21,15 @@ ActiveRecord::Schema.define(:version => 20130206171141) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "items", :force => true do |t|
+    t.string   "content"
+    t.datetime "delivered_at"
+    t.integer  "account_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "items", ["account_id"], :name => "index_items_on_account_id"
 
 end

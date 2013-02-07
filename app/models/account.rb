@@ -3,6 +3,8 @@ require 'bcrypt'
 class ActivationError < StandardError; end
 class AlreadyActivatedError < StandardError; end
 class Account < ActiveRecord::Base
+  has_many :items, :dependent => :destroy
+
   attr_accessible :phone_number
   before_create :generate_activation_code
 

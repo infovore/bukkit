@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem "twitter-bootstrap-rails"
 gem 'less-rails'
 gem 'bcrypt-ruby'
+gem 'twilio-ruby'
 
 gem 'haml'
 

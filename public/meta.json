@@ -1,0 +1,8 @@
+{
+  "owner_email":"tom@infovore.org",
+  "publication_api_version":"1.0",
+  "name":"Bukkit",
+  "description":"An ephemeral to-do list",
+  "delivered_on":"every day",
+  "external_configuration":true
+}

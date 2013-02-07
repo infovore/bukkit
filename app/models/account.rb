@@ -9,7 +9,7 @@ class Account < ActiveRecord::Base
   scope :activated, :conditions => "activated_at IS NOT NULL"
 
   validates_presence_of :phone_number
-  validates_uniqueness_of :phone_number
+  validate :cannot_have_same_number_as_activated_account
 
   class << self
     def create_from_raw_number(number)
@@ -17,6 +17,12 @@ class Account < ActiveRecord::Base
       create(:phone_number => processed_number)
     end
 
+  end
+
+  def cannot_have_same_number_as_activated_account
+    if Account.where("phone_number = ? AND activated_at IS NOT NULL", phone_number).any?
+      errors.add(:phone_number, "That phone number is already in use.")
+    end
   end
 
   def activate(entered_code)

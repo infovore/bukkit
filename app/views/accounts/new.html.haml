@@ -4,6 +4,7 @@
   .control-group
     %label.control-label Phone number
     .controls
+      = hidden_field_tag :return_url, @return_url
       = text_field_tag :phone_number
   .control-group
     = submit_tag "Sign up"

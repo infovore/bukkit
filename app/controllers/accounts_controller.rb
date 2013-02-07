@@ -1,10 +1,12 @@
 class AccountsController < ApplicationController
   def new
     @account = Account.new
+    @return_url = params[:return_url]
   end
 
   def create
     @account = Account.create_from_raw_number(params[:phone_number])
+    @return_url = params[:return_url]
     if @account.save
       render :activate
       #redirect_to account_activations_path(@account.phone_number)
@@ -15,7 +17,7 @@ class AccountsController < ApplicationController
   end
 
   def activate
-    @account = Account.find(params[:id])
+    @return_url = params[:return_url]
   end
 
 end

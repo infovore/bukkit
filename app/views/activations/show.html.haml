@@ -1,9 +1,0 @@
-%h1 Activate your account
-
-= form_tag(account_activations_path(@account.phone_number), :method => :post, :class => "horizontal-form") do |f|
-  .control-group
-    %label.control-label Activation Code
-    .controls
-      = text_field_tag :activation_code
-  .control-group
-    = submit_tag "Activate my account"

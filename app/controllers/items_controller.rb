@@ -12,10 +12,8 @@ class ItemsController < ApplicationController
       # this is how little printer works, deal with it.
     elsif @account
       head :no_content
-      #render :text => "no items in your account"
     else
-      render :text => "not found"
-      #head :not_found
+      head :not_found
     end
   end
 

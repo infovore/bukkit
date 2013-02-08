@@ -12,7 +12,7 @@
  *= require bootstrap_and_overrides
  */
 
-h1 {
+h1.home {
   background: url(#{asset_path('biglogo.png', image)}) no-repeat 50% 0;
   width: 100%;
   height: 120px;

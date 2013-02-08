@@ -1,10 +1,18 @@
 %h1 Sign up for Bukkit
 
+%p To use Bukkit, you'll need to enter your phone number. Once you've done that, you'll be texted a confirmation code that you'll have to enter on the next screen. Then, you'll be returned to Bergcloud.
+
 = form_tag(accounts_path, :method => :post, :class => "horizontal-form") do |f|
   .control-group
     %label.control-label Phone number
     .controls
       = hidden_field_tag :return_url, @return_url
       = text_field_tag :phone_number
+  %p Enter your phone number:
+  %ul
+    %li <i>Without</i> the leading zero
+    %li <i>With</i> the country code.
+
+  %p For instance, if you had a British phone, with the number <code>01234 567890</code>, you'd enter <b><code>441234567890</code></b>
   .control-group
     = submit_tag "Sign up"

@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
   def sample
     @items = [Item.new(:content => "Pick up milk"),
-              Item.new(:content => "ring the doctor"),
+              Item.new(:content => "ring the doctor about the horrible rash on my thigh"),
               Item.new(:content => "25 push-ups today!")]
     render :index
   end

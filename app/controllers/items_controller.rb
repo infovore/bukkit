@@ -5,18 +5,18 @@ class ItemsController < ApplicationController
   def index
     @account = Account.find_by_auth_token(params[:auth_token])
     if @account && @account.items.undelivered.any?
-      etag Digest::MD5.hexdigest(@account+Time.now.utc.to_s)
+      fresh_when(:etag => (@account.auth_token + Time.now.utc.to_s)
       @items = @account.items.undelivered
       @items.each {|i| i.mark_delivered!}
       # mark all items as seen! yes, that's right: it's a destructive get
       # method
       # this is how little printer works, deal with it.
     elsif @account
-      etag Digest::MD5.hexdigest(@account+Time.now.utc.to_s)
+      fresh_when(:etag => (@account.auth_token + Time.now.utc.to_s)
       head :no_content
     else
-      etag Digest::MD5.hexdigest(Time.now.utc.to_s)
-      head :no_content
+      fresh_when(:etag => Time.now.utc.to_s)
+      head :bad_request
     end
   end
 

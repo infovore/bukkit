@@ -7,11 +7,11 @@ class Account < ActiveRecord::Base
 
   attr_accessible :phone_number
   before_create :generate_activation_code
+  before_create :cannot_have_same_number_as_activated_account
 
   scope :activated, :conditions => "activated_at IS NOT NULL"
 
   validates_presence_of :phone_number
-  validate :cannot_have_same_number_as_activated_account
 
   class << self
     def create_from_raw_number(number)
@@ -19,6 +19,10 @@ class Account < ActiveRecord::Base
       create(:phone_number => processed_number)
     end
 
+    def find_from_twilio(twilio_number)
+      n = twilio_number.gsub("+","")
+      find_by_phone_number(n)
+    end
   end
 
   def cannot_have_same_number_as_activated_account

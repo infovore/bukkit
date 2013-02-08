@@ -12,7 +12,7 @@ h1 {
   height: 43px;
   padding-top: 14px;
   &.logo {
-    background: url(#{asset_path('header-logo.png',image)}) no-repeat 93px 0;
+    background: #{asset_url('header-logo.png',image)} no-repeat 93px 0;
   }
 }
 
@@ -38,7 +38,7 @@ ul.items {
   li {
     margin: 0 0 20px;
     padding: 0 0 0 36px;
-    background: url(#{asset_path('tickbox.png',image)}) no-repeat 0 50%;
+    background: #{asset_url('tickbox.png',image)} no-repeat 0 50%;
 
     &.last {
       margin: 0;

@@ -18,6 +18,13 @@ class ItemsController < ApplicationController
       #head :not_found
     end
   end
+
+  def sample
+    @items = [Item.new(:content => "Pick up milk"),
+              Item.new(:content => "ring the doctor"),
+              Item.new(:content => "25 push-ups today!")]
+    render :index
+  end
   
   def create
     # get the phone number

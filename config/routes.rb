@@ -1,7 +1,11 @@
 Bukkit::Application.routes.draw do
   resources :accounts 
   resources :activations
-  resources :items
+  resources :items do
+    collection do
+      get :sample
+    end
+  end
   resources :pages do
     collection do
       get :about
@@ -10,5 +14,6 @@ Bukkit::Application.routes.draw do
 
   match "/configure" => "accounts#new"
   match "/edition" => "items#index"
+  match "/sample" => "items#sample"
   root :to => "pages#index"
 end

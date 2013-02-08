@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     elsif @account
       head :no_content
     else
-      head :not_found
+      head :no_content
     end
   end
 

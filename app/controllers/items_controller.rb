@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @account = Account.find_by_auth_token(params[:auth_token])
-    if @account && @account.items.any?
+    if @account && @account.items.undelivered.any?
       @items = @account.items.undelivered
       @items.each {|i| i.mark_delivered!}
       # mark all items as seen! yes, that's right: it's a destructive get

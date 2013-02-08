@@ -9,6 +9,11 @@ body {
 h1 {
   margin: 0;
   text-align: center;
+  height: 43px;
+  padding-top: 14px;
+  &.logo {
+    background: url(#{asset_path('header-logo.png',image)}) no-repeat 93px 0;
+  }
 }
 
 p.number {
@@ -17,6 +22,27 @@ p.number {
 }
 
 .bottom-divider {
-  border-bottom: 1px solid #888;
+  border-top: 4px solid #000;
+  height: 2px;
+  border-bottom: 2px solid #000;
+}
+
+ul.items {
+  font-size: 120%;
+  list-style: none;
+  margin: 0;
+  padding: 20px 10px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+
+  li {
+    margin: 0 0 20px;
+    padding: 0 0 0 36px;
+    background: url(#{asset_path('tickbox.png',image)}) no-repeat 0 50%;
+
+    &.last {
+      margin: 0;
+    }
+  }
 }
 

@@ -1,10 +1,13 @@
-%h1 Your Bukkit
+%h1.logo Bukkit
 
 %p.head At about 8am, your Bukkit contained:
 
 %ul.items
   - for item in @items
-    %li= item.content
+    - if item == @items.last
+      %li.last= item.content
+    - else
+      %li= item.content
 
 
 %p Your Bukkit is now empty. 

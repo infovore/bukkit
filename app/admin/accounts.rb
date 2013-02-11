@@ -3,11 +3,11 @@ ActiveAdmin.register Account do
     selectable_column
     column :id
     column :phone_number do |a| 
-      a.phone_number.truncate(9)
+      a.phone_number.truncate(9) if a.phone_number
     end
     column :activation_code
     column :auth_token do |a|
-      a.auth_token.truncate(10)
+      a.auth_token.truncate(10) if a.auth_token
     end
     column :created_at
     column :updated_at

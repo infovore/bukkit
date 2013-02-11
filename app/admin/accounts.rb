@@ -5,6 +5,12 @@ ActiveAdmin.register Account do
     column :phone_number do |a| 
       a.phone_number.truncate(9) if a.phone_number
     end
+    column "Items to be published" do |a|
+      account.items.undelivered.size
+    end
+    column "Delivered items" do |a|
+      account.items.delivered.size
+    end
     column :activation_code
     column :auth_token do |a|
       a.auth_token.truncate(10) if a.auth_token

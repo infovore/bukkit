@@ -6,7 +6,7 @@ class ActivationsController < ApplicationController
       TWILIO_CLIENT.account.sms.messages.create(:from => ENV['TWILIO_NUMBER'],
                                                 :to => @account.phone_number,
                                                 :body => "Thanks for signing up to Bukkit! You can now text to-do items to this number.")
-      redirect "#{params[:return_url]}?config[auth_token]=#{@account.auth_token}"
+      redirect_to "#{params[:return_url]}?config[auth_token]=#{@account.auth_token}"
     rescue AlreadyActivatedError
       render :text => "This account is already active."
     rescue ActivationError

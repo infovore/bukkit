@@ -1,6 +1,6 @@
 %h1.logo Bukkit
 
-%p.head At about 8am, your Bukkit contained:
+%p.head When I last looked, your Bukkit contained:
 
 %ul.items
   - for item in @items
@@ -10,7 +10,7 @@
       %li= item.content
 
 
-%p Your Bukkit is now empty. 
+%p This time tomorrow, your Bukkit will be empty.
 %p To add items to it, SMS them to:
 %p.number
   %b+#{ENV['TWILIO_NUMBER']}

@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
 
   scope :delivered, where("delivered_at IS NOT NULL")
   scope :to_be_delivered, lambda {
-    where("delivered_at IS NULL or (delivered_at < ? AND delivered_at >= ?)", Time.now - 1.hour, Time.now - 24.hours)
+    where("delivered_at IS NULL or (? >= delivered_at AND ? < delivered_at)", Time.now, Time.now-23.hours)
   }
   scope :undelivered, where("delivered_at IS NULL")
 

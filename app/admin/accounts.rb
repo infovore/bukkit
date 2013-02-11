@@ -6,13 +6,13 @@ ActiveAdmin.register Account do
       a.phone_number.truncate(9) if a.phone_number
     end
     column "Items undelivered" do |a|
-      account.items.undelivered.size
+      a.items.undelivered.size
     end
     column "Items to be delivered" do |a|
-      account.items.to_be_delivered.size
+      a.items.to_be_delivered.size
     end
     column "Delivered items" do |a|
-      account.items.delivered.size
+      a.items.delivered.size
     end
     column :activation_code
     column :auth_token do |a|

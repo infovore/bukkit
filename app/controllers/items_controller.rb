@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
 
   def index
     @account = Account.find_by_auth_token(params[:auth_token])
-    if @account && @account.items.undelivered.any?
+    if @account && @account.items.to_be_delivered.any?
       fresh_when(:etag => (@account.auth_token + Time.now.utc.to_s))
-      @items = @account.items.undelivered
+      @items = @account.items.to_be_delivered
       unless params[:preview] == "true"
         @items.each {|i| i.mark_delivered!}
       end

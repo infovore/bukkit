@@ -5,8 +5,11 @@ ActiveAdmin.register Account do
     column :phone_number do |a| 
       a.phone_number.truncate(9) if a.phone_number
     end
-    column "Items to be published" do |a|
+    column "Items undelivered" do |a|
       account.items.undelivered.size
+    end
+    column "Items to be delivered" do |a|
+      account.items.to_be_delivered.size
     end
     column "Delivered items" do |a|
       account.items.delivered.size

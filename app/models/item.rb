@@ -3,7 +3,10 @@ class Item < ActiveRecord::Base
   attr_accessible :content, :account_id, :delivered_at
 
   scope :delivered, where("delivered_at IS NOT NULL")
-  scope :undelivered, where(:delivered_at => nil)
+  scope :to_be_delivered, lambda {
+    where("delivered_at IS NULL or (delivered_at < ? AND delivered_at >= ?)", Time.now - 1.hour, Time.now - 24.hours)
+  }
+  scope :undelivered, where("delivered_at IS NULL")
 
   def mark_delivered!
     self.delivered_at = Time.now

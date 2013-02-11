@@ -3,13 +3,17 @@ ActiveAdmin.register Account do
     selectable_column
     column :id
     column :phone_number do |a| 
-      a.phone_number.truncate(2)
+      a.phone_number.truncate(9)
     end
     column :activation_code
-    column :auth_token
+    column :auth_token do |a|
+      a.auth_token.truncate(10)
+    end
     column :created_at
     column :updated_at
-    default_actions
+    column do |a|
+      link_to "Preview this bukkit", items_path(:auth_token => a.auth_token, :preview => true)
+    end
   end
   
 end

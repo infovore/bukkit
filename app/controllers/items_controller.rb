@@ -7,7 +7,9 @@ class ItemsController < ApplicationController
     if @account && @account.items.undelivered.any?
       fresh_when(:etag => (@account.auth_token + Time.now.utc.to_s))
       @items = @account.items.undelivered
-      @items.each {|i| i.mark_delivered!}
+      unless params[:preview] == "true"
+        @items.each {|i| i.mark_delivered!}
+      end
       # mark all items as seen! yes, that's right: it's a destructive get
       # method
       # this is how little printer works, deal with it.

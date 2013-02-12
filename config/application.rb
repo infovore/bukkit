@@ -66,7 +66,7 @@ module Bukkit
     config.assets.version = '1.0'
 
     # Stop precompile on heroku loading DB
-    config.assets.initialize_on_precompile = false
+    #config.assets.initialize_on_precompile = false
     
   end
 end

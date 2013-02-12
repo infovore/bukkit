@@ -23,6 +23,10 @@ class Account < ActiveRecord::Base
       n = twilio_number.gsub("+","")
       find_by_phone_number(n)
     end
+
+    def latest(n)
+      order("created_at desc").limit(n)
+    end
   end
 
   def cannot_have_same_number_as_activated_account

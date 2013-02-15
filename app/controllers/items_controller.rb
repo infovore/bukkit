@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     if @account && @account.items.to_be_delivered.any?
       fresh_when(:etag => (@account.auth_token + Time.now.utc.to_s))
 
-      @items = @account.items.to_be_delivered
+      @items = @account.items.to_be_delivered.order("created_at")
 
       unless params[:preview] == "true"
         @items.each {|i| i.mark_delivered!}

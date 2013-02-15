@@ -12,4 +12,11 @@ class Item < ActiveRecord::Base
     self.delivered_at = Time.now
     self.save!
   end
+
+  def self.sample_items
+    items = [Item.new(:content => "Pick up milk"),
+             Item.new(:content => "ring the doctor about the horrible rash on my thigh"),
+             Item.new(:content => "25 push-ups today!")]
+
+  end
 end
